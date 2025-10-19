@@ -3,7 +3,7 @@ param(
   [string]$DbHost = "host.docker.internal",
   [int]   $Port = 5433,
   [string]$User = "postgres",
-  [string]$Pass = $env:OGPASS,
+  [string]$Pass = $env:PGPASS,
   [string]$Db = "nyc",
   [string]$WorkMem = "64MB",
   [string]$RestartContainerName = "pg18",
@@ -34,7 +34,7 @@ if ($RestartContainerName) {
 Wait-DbReady "plan"
 
 $ts = Get-Date -Format "yyyyMMdd_HHmmss"
-$run = "og-parity-plan-$ts"
+$run = "pg-parity-plan-$ts"
 
 docker run --rm -e PGPASSWORD=$Pass `
   -v "${SqlDir}:/sql" -v "${OutDir}:/out" `

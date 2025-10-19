@@ -36,7 +36,7 @@ function Wait-DbReady {
 
 function Invoke-Bench([string]$cacheMode, [int]$iter) {
     $ts = Get-Date -Format "yyyyMMdd_HHmmss"
-    $run = "og-parity-$cacheMode-r{0:D2}-$ts" -f $iter
+    $run = "pg-parity-$cacheMode-r{0:D2}-$ts" -f $iter
     $outd = if ($cacheMode -eq "cold") { $OutCold } else { $OutHot }
 
     docker run --rm -e PGPASSWORD=$Pass `

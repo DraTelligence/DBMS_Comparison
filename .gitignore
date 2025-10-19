@@ -19,3 +19,9 @@ results/
 *.gz
 *.csv
 *.parquet
+
+# report
+report/
+
+# cpp compiled
+cpp/compiled

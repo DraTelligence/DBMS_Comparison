@@ -34,7 +34,7 @@ if ($RestartContainerName) {
 Wait-DbReady "plan"
 
 $ts = Get-Date -Format "yyyyMMdd_HHmmss"
-$run = "og-default-plan-$ts"
+$run = "pg-default-plan-$ts"
 
 docker run --rm -e PGPASSWORD=$Pass `
   -v "${SqlDir}:/sql" -v "${OutDir}:/out" `

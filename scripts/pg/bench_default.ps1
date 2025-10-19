@@ -3,7 +3,7 @@ param(
     [string]$DbHost = "host.docker.internal",
     [int]   $Port = 5433,
     [string]$User = "postgres",
-    [string]$Pass = $env:OGPASS,
+    [string]$Pass = $env:PGPASS,
     [string]$Db = "nyc",
     [int]   $ColdRuns = 1,
     [int]   $HotRuns = 1,
@@ -35,7 +35,7 @@ function Wait-DbReady {
 
 function Invoke-Bench([string]$cacheMode, [int]$iter) {
     $ts = Get-Date -Format "yyyyMMdd_HHmmss"
-    $run = "og-default-$cacheMode-r{0:D2}-$ts" -f $iter
+    $run = "pg-default-$cacheMode-r{0:D2}-$ts" -f $iter
     $outd = if ($cacheMode -eq "cold") { $OutCold } else { $OutHot }
 
     docker run --rm -e PGPASSWORD=$Pass `
