@@ -1,0 +1,21 @@
+# OS/IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local artifacts
+data/
+results/
+.env
+*.env
+*.log
+*.bak
+
+# Archives/large
+*.zip
+*.7z
+*.tar
+*.gz
+*.csv
+*.parquet
